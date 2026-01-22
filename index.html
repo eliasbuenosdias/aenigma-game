@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AENIGMA: The Evolution of Secrets</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="loader-content">
+            <div class="loader-text">AENIGMA</div>
+            <div class="loader-subtitle">Initializing Cryptographic Systems...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="loader-status" id="loader-status">Loading core modules...</div>
+        </div>
+    </div>
+
+    <div id="main-container" class="hidden">
+        <header id="game-header">
+            <div class="logo">
+                <span class="logo-symbol">Ψ</span>
+                <span class="logo-text">AENIGMA</span>
+            </div>
+            <div class="status-indicator">
+                <span class="status-dot"></span>
+                <span id="status-text">System Active</span>
+            </div>
+            <div class="timer-display">
+                <span class="timer-label">Elapsed:</span>
+                <span id="game-timer">00:00:00</span>
+            </div>
+        </header>
+
+        <div id="game-layout">
+            <aside id="sidebar">
+                <div class="sidebar-section">
+                    <h3 class="section-title">NIVELES</h3>
+                    <nav id="level-nav">
+                        <ul class="level-list">
+                            <li class="level-item" data-level="1">
+                                <span class="level-number">01</span>
+                                <span class="level-name">Tablillas de Cera</span>
+                                <span class="level-status locked"></span>
+                            </li>
+                            <li class="level-item" data-level="2">
+                                <span class="level-number">02</span>
+                                <span class="level-name">Acrósticos Romanos</span>
+                                <span class="level-status locked"></span>
+                            </li>
+                            <li class="level-item" data-level="3">
+                                <span class="level-number">03</span>
+                                <span class="level-name">Velo Digital LSB</span>
+                                <span class="level-status locked"></span>
+                            </li>
+                            <li class="level-item" data-level="4">
+                                <span class="level-number">04</span>
+                                <span class="level-name">Rejilla de Cardano</span>
+                                <span class="level-status locked"></span>
+                            </li>
+                            <li class="level-item" data-level="5">
+                                <span class="level-number">05</span>
+                                <span class="level-name">Análisis DCT</span>
+                                <span class="level-status locked"></span>
+                            </li>
+                            <li class="level-item" data-level="6">
+                                <span class="level-number">06</span>
+                                <span class="level-name">Factorización RSA</span>
+                                <span class="level-status locked"></span>
+                            </li>
+                            <li class="level-item" data-level="7">
+                                <span class="level-number">07</span>
+                                <span class="level-name">Enigma Final</span>
+                                <span class="level-status locked"></span>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="section-title">HERRAMIENTAS</h3>
+                    <div id="toolbox" class="toolbox">
+                        <button class="tool-btn" data-tool="hex" title="Editor Hexadecimal">
+                            <span class="tool-icon">0x</span>
+                            <span class="tool-name">HEX</span>
+                        </button>
+                        <button class="tool-btn" data-tool="binary" title="Conversor Binario">
+                            <span class="tool-icon">∑</span>
+                            <span class="tool-name">BIN</span>
+                        </button>
+                        <button class="tool-btn" data-tool="caesar" title="Cifrado César">
+                            <span class="tool-icon">C</span>
+                            <span class="tool-name">CÉSAR</span>
+                        </button>
+                        <button class="tool-btn" data-tool="frequency" title="Análisis de Frecuencia">
+                            <span class="tool-icon">ƒ</span>
+                            <span class="tool-name">FREQ</span>
+                        </button>
+                        <button class="tool-btn" data-tool="rsa" title="Calculadora RSA">
+                            <span class="tool-icon">R</span>
+                            <span class="tool-name">RSA</span>
+                        </button>
+                        <button class="tool-btn" data-tool="runes" title="Decodificador de Runas">
+                            <span class="tool-icon">⚡</span>
+                            <span class="tool-name">RUNAS</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="sidebar-section hints-section">
+                    <h3 class="section-title">PISTAS</h3>
+                    <div id="hints-container">
+                        <p class="hint-text locked-hint">Completa niveles anteriores para desbloquear pistas</p>
+                    </div>
+                </div>
+            </aside>
+
+            <main id="game-content">
+                <div id="intro-panel" class="panel active">
+                    <div class="intro-content">
+                        <h1 class="intro-title glitch" data-text="AENIGMA">AENIGMA</h1>
+                        <h2 class="intro-subtitle">La Evolución del Secreto</h2>
+                        <div class="intro-description">
+                            <p>Bienvenido, aventurero criptográfico. A lo largo de la historia, la humanidad ha desarrollado métodos cada vez más sofisticados para ocultar información. Desde las tablillas de cera griegas hasta las redes neuronales modernas, el arte del secreto ha evolucionado.</p>
+                            <p>Este juego te guiará a través de siete niveles que abarcan esa evolución. Cada nivel presenta un desafío criptográfico real que debes resolver para avanzar.</p>
+                            <p class="warning-text">⚠ ADVERTENCIA: La dificultad aumenta exponencialmente. Los últimos niveles requieren conocimientos avanzados de matemáticas, esteganografía y criptografía.</p>
+                        </div>
+                        <button id="start-btn" class="action-btn primary-btn">
+                            <span class="btn-text">Iniciar el Viaje</span>
+                            <span class="btn-icon">►</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="level-container" class="panel hidden">
+                    <div id="level-header">
+                        <h2 id="level-title">Nivel 1</h2>
+                        <span id="level-difficulty" class="difficulty-badge easy">Principiante</span>
+                    </div>
+                    
+                    <div id="level-content">
+                        <div id="artifact-panel" class="content-panel">
+                            <h3 class="panel-title">ARTEFACTO</h3>
+                            <div id="artifact-container">
+                                <!-- Dynamic content based on level -->
+                            </div>
+                        </div>
+                        
+                        <div id="tools-panel" class="content-panel">
+                            <h3 class="panel-title">HERRAMIENTAS DE ANÁLISIS</h3>
+                            <div id="analysis-tools">
+                                <!-- Dynamic tools based on level -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="level-input-section">
+                        <h3 class="panel-title">ENTRADA DE RESPUESTA</h3>
+                        <div class="input-wrapper">
+                            <span class="input-prompt">></span>
+                            <input type="text" id="level-answer" placeholder="Ingresa la respuesta..." autocomplete="off">
+                            <button id="submit-answer" class="action-btn">ENVIAR</button>
+                        </div>
+                        <div id="input-feedback" class="feedback hidden"></div>
+                    </div>
+                </div>
+
+                <div id="terminal-panel" class="panel hidden">
+                    <div class="terminal-header">
+                        <span class="terminal-title">_TERMINAL_DE_ANÁLISIS</span>
+                        <div class="terminal-controls">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                        </div>
+                    </div>
+                    <div id="terminal-output" class="terminal-content">
+                        <div class="terminal-line system">AENIGMA v1.0 - Sistema de análisis criptográfico inicializado</div>
+                        <div class="terminal-line system">Esperando entrada del usuario...</div>
+                    </div>
+                    <div class="terminal-input-line">
+                        <span class="terminal-prompt">➜ ~</span>
+                        <input type="text" id="terminal-input" autocomplete="off">
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div id="modal-overlay" class="hidden">
+            <div id="modal-container">
+                <div id="modal-content">
+                    <div id="modal-icon"></div>
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-message"></p>
+                    <div id="modal-rewards" class="hidden">
+                        <h4>Desbloqueado:</h4>
+                        <ul id="rewards-list"></ul>
+                    </div>
+                    <button id="modal-action" class="action-btn primary-btn"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tool Panels (Hidden by default) -->
+    <div id="hex-tool" class="tool-panel hidden">
+        <div class="tool-panel-header">
+            <h3>EDITOR HEXADECIMAL</h3>
+            <button class="close-tool">×</button>
+        </div>
+        <div class="tool-panel-content">
+            <textarea id="hex-input" placeholder="Ingresa datos hexadecimales..."></textarea>
+            <div class="hex-output" id="hex-output"></div>
+        </div>
+    </div>
+
+    <div id="binary-tool" class="tool-panel hidden">
+        <div class="tool-panel-header">
+            <h3>CONVERSOR BINARIO</h3>
+            <button class="close-tool">×</button>
+        </div>
+        <div class="tool-panel-content">
+            <input type="text" id="binary-text-input" placeholder="Ingresa texto...">
+            <div class="conversion-result">
+                <label>Binario:</label>
+                <div id="binary-result" class="result-box"></div>
+            </div>
+            <div class="conversion-result">
+                <label>Decimal:</label>
+                <div id="decimal-result" class="result-box"></div>
+            </div>
+            <div class="conversion-result">
+                <label>Hex:</label>
+                <div id="hex-result" class="result-box"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="caesar-tool" class="tool-panel hidden">
+        <div class="tool-panel-header">
+            <h3>CIFRADO DE CÉSAR</h3>
+            <button class="close-tool">×</button>
+        </div>
+        <div class="tool-panel-content">
+            <div class="shift-control">
+                <label>Desplazamiento:</label>
+                <input type="number" id="caesar-shift" value="13" min="1" max="25">
+                <input type="range" id="caesar-slider" min="1" max="25" value="13">
+            </div>
+            <textarea id="caesar-input" placeholder="Ingresa texto para cifrar/descifrar..."></textarea>
+            <button id="caesar-encode" class="tool-action-btn">CIFRAR</button>
+            <button id="caesar-decode" class="tool-action-btn">DESCIFRAR</button>
+            <div id="caesar-result" class="result-box"></div>
+        </div>
+    </div>
+
+    <div id="frequency-tool" class="tool-panel hidden">
+        <div class="tool-panel-header">
+            <h3>ANÁLISIS DE FRECUENCIA</h3>
+            <button class="close-tool">×</button>
+        </div>
+        <div class="tool-panel-content">
+            <textarea id="frequency-input" placeholder="Ingresa texto para analizar..."></textarea>
+            <button id="analyze-frequency" class="tool-action-btn">ANALIZAR</button>
+            <div id="frequency-chart" class="chart-container"></div>
+            <div id="frequency-stats" class="stats-container"></div>
+        </div>
+    </div>
+
+    <div id="rsa-tool" class="tool-panel hidden">
+        <div class="tool-panel-header">
+            <h3>CALCULADORA RSA</h3>
+            <button class="close-tool">×</button>
+        </div>
+        <div class="tool-panel-content">
+            <div class="rsa-inputs">
+                <div class="rsa-field">
+                    <label>N (módulo):</label>
+                    <input type="text" id="rsa-n" placeholder="Ej: 3233">
+                </div>
+                <div class="rsa-field">
+                    <label>e (exponente público):</label>
+                    <input type="number" id="rsa-e" placeholder="Ej: 17">
+                </div>
+                <div class="rsa-field">
+                    <label>p (primo 1):</label>
+                    <input type="number" id="rsa-p" placeholder="Opcional">
+                </div>
+                <div class="rsa-field">
+                    <label>q (primo 2):</label>
+                    <input type="number" id="rsa-q" placeholder="Opcional">
+                </div>
+            </div>
+            <button id="calculate-rsa" class="tool-action-btn">CALCULAR CLAVE PRIVADA</button>
+            <div id="rsa-results" class="results-container hidden">
+                <div class="rsa-result-item">
+                    <label>φ(n):</label>
+                    <span id="rsa-phi"></span>
+                </div>
+                <div class="rsa-result-item">
+                    <label>d (clave privada):</label>
+                    <span id="rsa-d"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="runes-tool" class="tool-panel hidden">
+        <div class="tool-panel-header">
+            <h3>DECODIFICADOR DE RUNAS</h3>
+            <button class="close-tool">×</button>
+        </div>
+        <div class="tool-panel-content">
+            <div class="runes-reference">
+                <h4>Referencia de Runas</h4>
+                <div class="runes-table">
+                    <div class="rune-pair"><span class="rune">ᚠ</span><span class="rune-value">F</span></div>
+                    <div class="rune-pair"><span class="rune">ᚢ</span><span class="rune-value">U</span></div>
+                    <div class="rune-pair"><span class="rune">ᚦ</span><span class="rune-value">TH</span></div>
+                    <div class="rune-pair"><span class="rune">ᚨ</span><span class="rune-value">A</span></div>
+                    <div class="rune-pair"><span class="rune">ᚱ</span><span class="rune-value">R</span></div>
+                    <div class="rune-pair"><span class="rune">ᚲ</span><span class="rune-value">K</span></div>
+                    <div class="rune-pair"><span class="rune">ᚷ</span><span class="rune-value">G</span></div>
+                    <div class="rune-pair"><span class="rune">ᚹ</span><span class="rune-value">W</span></div>
+                    <div class="rune-pair"><span class="rune">ᚺ</span><span class="rune-value">H</span></div>
+                    <div class="rune-pair"><span class="rune">ᚾ</span><span class="rune-value">N</span></div>
+                    <div class="rune-pair"><span class="rune">ᛁ</span><span class="rune-value">I</span></div>
+                    <div class="rune-pair"><span class="rune">ᛃ</span><span class="rune-value">J</span></div>
+                    <div class="rune-pair"><span class="rune">ᛈ</span><span class="rune-value">P</span></div>
+                    <div class="rune-pair"><span class="rune">ᛇ</span><span class="rune-value">E</span></div>
+                    <div class="rune-pair"><span class="rune">ᛉ</span><span class="rune-value">Z</span></div>
+                    <div class="rune-pair"><span class="rune">ᛊ</span><span class="rune-value">S</span></div>
+                    <div class="rune-pair"><span class="rune">ᛏ</span><span class="rune-value">T</span></div>
+                    <div class="rune-pair"><span class="rune">ᛒ</span><span class="rune-value">B</span></div>
+                    <div class="rune-pair"><span class="rune">ᛖ</span><span class="rune-value">E</span></div>
+                    <div class="rune-pair"><span class="rune">ᛗ</span><span class="rune-value">M</span></div>
+                    <div class="rune-pair"><span class="rune">ᛚ</span><span class="rune-value">L</span></div>
+                    <div class="rune-pair"><span class="rune">ᛜ</span><span class="rune-value">NG</span></div>
+                    <div class="rune-pair"><span class="rune">ᛟ</span><span class="rune-value">O</span></div>
+                    <div class="rune-pair"><span class="rune">ᛞ</span><span class="rune-value">D</span></div>
+                </div>
+            </div>
+            <textarea id="runes-input" placeholder="Ingresa runas para decodificar..."></textarea>
+            <button id="decode-runes" class="tool-action-btn">DECODIFICAR</button>
+            <div id="runes-result" class="result-box"></div>
+        </div>
+    </div>
+
+    <script src="js/game-data.js"></script>
+    <script src="js/level-manager.js"></script>
+    <script src="js/tools.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
