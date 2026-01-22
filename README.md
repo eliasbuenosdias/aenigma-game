@@ -1,5 +1,9 @@
 # 🕵️ AENIGMA: The Evolution of Secrets 🔐
 
+<p align="center">
+  <img src="assets/preview.png" alt="AENIGMA Preview" width="600">
+</p>
+
 ## 📝 Descripción del Proyecto
 
 AENIGMA es una aplicación web interactiva de tipo juego criptográfico que simula la evolución histórica de las técnicas de esteganografía y criptografía, desde métodos antiguos hasta tecnologías modernas. El juego está inspirado en el famoso enigma de Cicada 3301 y está diseñado para desafiar las habilidades de resolución de problemas de los jugadores mediante siete niveles progresivos que integran técnicas criptográficas auténticas.
@@ -7,6 +11,14 @@ AENIGMA es una aplicación web interactiva de tipo juego criptográfico que simu
 El proyecto combina elementos educativos con desafíos prácticos, permitiendo a los participantes aprender sobre métodos históricos como las tablillas de cera griegas y los acrósticos romanos, mientras simultáneamente dominan técnicas contemporáneas como la esteganografía LSB, el análisis DCT y la factorización RSA. Cada nivel presenta una metodología diferente que los jugadores deben descifrar utilizando herramientas integradas en el propio juego o conocimientos externos de criptografía clásica y moderna.
 
 La arquitectura del sistema está construida como una aplicación de página única (SPA) que carga dinámicamente el contenido de cada nivel, mantiene el progreso del jugador mediante almacenamiento local y proporciona un sistema de terminal integrado que permite la ejecución de comandos para facilitar la resolución de los puzzles más complejos.
+
+## 🛠️ Stack Tecnológico
+
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
+![Canvas API](https://img.shields.io/badge/Canvas_API-005A9C.svg?style=for-the-badge&logo=html5&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
 ## ✨ Características Principales
 
