@@ -100,7 +100,7 @@ Las contribuciones son bienvenidas mediante solicitudes de extracción que añad
 
 ## Licencia
 
-Este proyecto se distribuye bajo la licencia MIT, lo que permite el uso, modificación y distribución libre del código tanto para propósitos comerciales como no comerciales, con la única obligación de incluir el aviso de copyright y la licencia en copias del software.
+Este proyecto es de propiedad privada. Todos los derechos están reservados. No se permite el uso, reproducción, distribución o modificación de este software sin el permiso expreso del autor.
 
 ## Reconocimientos
 
